@@ -166,6 +166,7 @@ class GitHubIssueNotifier:
         self._token = token
 
     def send(self, title, info):
+        print("qwq")
         requests.post(
             f"https://api.github.com/repos/{self._owner}/{self._repo}/issues",
             data={
