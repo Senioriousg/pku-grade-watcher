@@ -161,9 +161,9 @@ class Session(requests.Session):
 
 class GitHubIssueNotifier:
     def __init__(self, owner, repo, token):
-        self._token = token
         self._owner = owner
         self._repo = repo
+        self._token = token
 
     def send(self, title, info):
         requests.post(
