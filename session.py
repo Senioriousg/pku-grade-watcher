@@ -159,6 +159,25 @@ class Session(requests.Session):
             print(f"检查更新时出错: {e}")
             return []
 
+class GitHubIssueNotifier:
+    def __init__(self, owner, repo, token):
+        self._token = token
+        self._owner = owner
+        self._repo = repo
+
+    def send(self, title, info):
+        requests.post(
+            f"https://api.github.com/repos/{self._owner}/{self._repo}/issues",
+            data={
+                "title": title,
+                "body": info,
+            },
+            headers={
+                "Accept": "application/vnd.github+json",
+                "Authorization": f"Bearer {self._token}",
+                "X-GitHub-Api-Version": "2022-11-28",
+            }
+        )
 
 class BarkNotifier:
     def __init__(self, token):
