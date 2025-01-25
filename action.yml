@@ -18,6 +18,11 @@ inputs:
   bark:
     description: 'Bark key'
     default: ''
+  owner:
+    description: 'Owner of the repo'
+  repo:
+    description: 'Name of the repo'
+    default: ''
   git-name:
     description: 'Name used for Git commits'
     default: 'Github Action'
