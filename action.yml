@@ -20,6 +20,7 @@ inputs:
     default: ''
   owner:
     description: 'Owner of the repo'
+    default: ''
   repo:
     description: 'Name of the repo'
     default: ''
