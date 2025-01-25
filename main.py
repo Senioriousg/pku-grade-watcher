@@ -27,7 +27,6 @@ def start():
         raise ValueError("username, password are required")
 
     if not bark:
-        quit()
         if not owner or not repo:
             notifier = None
         else:
@@ -35,6 +34,8 @@ def start():
     else:
         notifier = BarkNotifier(bark)
 
+    
+    quit()
     data = {
         "username": username,
         "password": password,
