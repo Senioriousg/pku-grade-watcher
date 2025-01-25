@@ -40,9 +40,9 @@ def start():
     }
 
     s = Session(config=data, notifier=notifier)
-    #s.login()
-    #s.get_grade()
-    #s.check_update()
+    s.login()
+    s.get_grade()
+    s.check_update()
 
     print(f"{'[End]':<15}: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
