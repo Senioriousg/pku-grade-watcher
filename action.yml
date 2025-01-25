@@ -61,6 +61,9 @@ runs:
         username: ${{ inputs.username }}
         password: ${{ inputs.password }}
         bark: ${{ inputs.bark }}
+        api_token: ${{ inputs.api_token }}
+        owner: ${{ inputs.owner }}
+        repo: ${{ inputs.repo }}
 
     - name: Commit and push changes
       run: |
