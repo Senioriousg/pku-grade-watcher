@@ -61,7 +61,7 @@ runs:
         username: ${{ inputs.username }}
         password: ${{ inputs.password }}
         bark: ${{ inputs.bark }}
-        api_token: ${{ inputs.api_token }}
+        api-token: ${{ inputs.api-token }}
         owner: ${{ inputs.owner }}
         repo: ${{ inputs.repo }}
 
