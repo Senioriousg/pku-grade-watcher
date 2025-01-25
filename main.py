@@ -27,10 +27,7 @@ def start():
         raise ValueError("username, password are required")
 
     if not bark:
-        if (not owner) or (not repo):
-            notifier = None
-        else
-            notifier = GitHubIssueNotifier(owner, repo, api_token)
+        notifier = GitHubIssueNotifier(owner, repo, api_token)
     else:
         notifier = BarkNotifier(bark)
 
