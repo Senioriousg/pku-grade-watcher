@@ -15,36 +15,36 @@ from session import GitHubIssueNotifier, BarkNotifier, Session
 def start():
     print(f"{'[Start]':<15}: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
-    # username = os.getenv("username", "")
-    # password = os.getenv("password", "")
-    # api_token = os.getenv("api-token", "")
-    # bark = os.getenv("bark", "")
+    username = os.getenv("username", "")
+    password = os.getenv("password", "")
+    api_token = os.getenv("api-token", "")
+    bark = os.getenv("bark", "")
 
-    # owner = os.getenv("owner", "")
-    # repo = os.getenv("repo", "")
+    owner = os.getenv("owner", "")
+    repo = os.getenv("repo", "")
 
-    # if not username or not password:
-    #     raise ValueError("username, password are required")
+    if not username or not password:
+        raise ValueError("username, password are required")
 
-    # if not bark:
-    #     if not owner or not repo:
-    #         notifier = None
-    #     else:
-    #         notifier = GitHubIssueNotifier(owner, repo, api_token)
-    # else:
-    #     notifier = BarkNotifier(bark)
+    if not bark:
+        if not owner or not repo:
+            notifier = None
+        else:
+            notifier = GitHubIssueNotifier(owner, repo, api_token)
+    else:
+        notifier = BarkNotifier(bark)
 
-    # data = {
-    #     "username": username,
-    #     "password": password,
-    # }
+    data = {
+        "username": username,
+        "password": password,
+    }
 
-    # s = Session(config=data, notifier=notifier)
-    # s.login()
-    # s.get_grade()
-    # s.check_update()
+    s = Session(config=data, notifier=notifier)
+    s.login()
+    s.get_grade()
+    s.check_update()
 
-    # print(f"{'[End]':<15}: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"{'[End]':<15}: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
 
 if __name__ == "__main__":
