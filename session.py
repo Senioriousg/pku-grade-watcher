@@ -166,19 +166,26 @@ class GitHubIssueNotifier:
         self._token = token
 
     def send(self, title, info):
-        print("qwq")
-        requests.post(
-            f"https://api.github.com/repos/{self._owner}/{self._repo}/issues",
-            data={
-                "title": title,
-                "body": info,
-            },
-            headers={
-                "Accept": "application/vnd.github+json",
-                "Authorization": f"Bearer {self._token}",
-                "X-GitHub-Api-Version": "2022-11-28",
-            },
-        )
+        url = f"https://api.github.com/repos/{self._owner}/{self._repo}/issues"
+
+        issue_data = {
+            "title": title,
+            "body": info,
+        }
+
+        headers={
+            "Authorization": f"Bearer {self._token}",
+            "Accept": "application/vnd.github+json",
+        }
+
+        response = requests.post(url, json=issue_data, headers=headers)
+
+        if response.status_code == 201:
+            print("Issue created successfully!")
+            print("Issue URL:", response.json().get("html_url"))
+        else:
+            print(f"Failed to create issue. Status code: {response.status_code}")
+            print("Response:", response.json())
 
 class BarkNotifier:
     def __init__(self, token):
