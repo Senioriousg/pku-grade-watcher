@@ -31,6 +31,7 @@ def start():
             notifier = None
         else:
             notifier = GitHubIssueNotifier(owner, repo, api_token)
+            print(f"test123{owner} {repo} {api_token}")
     else:
         notifier = BarkNotifier(bark)
 
