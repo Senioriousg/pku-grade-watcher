@@ -29,8 +29,8 @@ def start():
     if not bark:
         if not owner or not repo:
             notifier = None
-            print("test123")
         else:
+            print("test123")
             notifier = GitHubIssueNotifier(owner, repo, api_token)
     else:
         notifier = BarkNotifier(bark)
