@@ -9,7 +9,7 @@
 import os
 from datetime import datetime
 
-from session import BarkNotifier, Session
+from session import GitHubIssueNotifier, BarkNotifier, Session
 
 
 def start():
@@ -17,13 +17,20 @@ def start():
 
     username = os.getenv("username", "")
     password = os.getenv("password", "")
+    api_token = os.getenv("api-token", "")
     bark = os.getenv("bark", "")
+
+    owner = os.getenv("owner", "")
+    repo = os.getenv("repo", "")
 
     if not username or not password:
         raise ValueError("username, password are required")
 
     if not bark:
-        notifier = None
+        if (not owner) or (not repo):
+            notifier = None
+        else
+            notifier = GitHubIssueNotifier(owner, repo, api_token)
     else:
         notifier = BarkNotifier(bark)
 
