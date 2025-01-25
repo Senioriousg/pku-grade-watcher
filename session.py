@@ -176,7 +176,7 @@ class GitHubIssueNotifier:
                 "Accept": "application/vnd.github+json",
                 "Authorization": f"Bearer {self._token}",
                 "X-GitHub-Api-Version": "2022-11-28",
-            }
+            },
         )
 
 class BarkNotifier:
